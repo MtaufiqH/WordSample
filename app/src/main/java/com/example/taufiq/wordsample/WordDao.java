@@ -11,6 +11,10 @@ import java.util.List;
 @Dao
 public interface WordDao {
 
+    // method to call all Words
+    @Query("SELECT * FROM word_table ORDER BY word ASC")
+    LiveData<List<Word>> getAllWords();
+
 
     // a method to insert a new Word
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -19,10 +23,6 @@ public interface WordDao {
     // method to delete all words
     @Query("DELETE FROM word_table")
     void deleteAll();
-
-    // method to call all Words
-    @Query("SELECT * FROM word_table ORDER BY word ASC")
-   LiveData<List<Word>> getAllWords();
 
 
 
