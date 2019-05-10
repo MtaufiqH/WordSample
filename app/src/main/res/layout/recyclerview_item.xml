@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/word_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Placeholder text"
