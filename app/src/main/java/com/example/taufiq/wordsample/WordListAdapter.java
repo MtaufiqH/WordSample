@@ -16,7 +16,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private List<Word> mWords; // cache copy of words
 
 
-     WordListAdapter(Context context) {
+     public WordListAdapter(Context context) {
         minflater = LayoutInflater.from(context);
     }
 
@@ -31,7 +31,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     public void onBindViewHolder(@NonNull WordViewHolder wordViewHolder, int position) {
         if (mWords != null) {
             Word current = mWords.get(position);
-            wordViewHolder.words.setText(current.getaWord());
+            wordViewHolder.words.setText(current.aWord);
         } else {
             // cover the case of data not being ready yet.
             wordViewHolder.words.setText(R.string.no_word);
@@ -55,8 +55,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
 
     class WordViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView words;
+         TextView words;
 
         WordViewHolder(@NonNull View itemView) {
             super(itemView);

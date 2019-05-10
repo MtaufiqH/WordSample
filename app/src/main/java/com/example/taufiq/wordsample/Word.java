@@ -11,13 +11,11 @@ public class Word {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "word")
-    private String aWord;
+    public String aWord;
 
     public Word(@NonNull String aWord) {
         this.aWord = aWord;
     }
 
-    public String getaWord() {
-        return aWord;
-    }
+
 }

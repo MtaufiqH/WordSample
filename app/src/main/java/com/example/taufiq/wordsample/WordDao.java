@@ -16,9 +16,9 @@ public interface WordDao {
     void insert(Word word);
 
     // method to delete all words
-    @Query("DELETE FROM word_table")
-    void deleteAall(Word word);
-
+   /* @Query("DELETE FROM word_table")
+    void deleteAall(List<Word> word);
+*/
     // method to call all Words
     @Query("SELECT * FROM word_table ORDER BY word ASC")
    LiveData<List<Word>> getAllWords();
