@@ -67,7 +67,6 @@ public abstract class WordDatabase extends RoomDatabase {
             // Start the app with a clean database every time.
             // Not needed if you only populate the database
             // when it is first created
-            mDao.deleteAll();
 
             for (int i = 0; i <= words.length - 1; i++) {
                 Word word = new Word(words[i]);
@@ -75,6 +74,7 @@ public abstract class WordDatabase extends RoomDatabase {
             }
             return null;
         }
+
     }
 
 }

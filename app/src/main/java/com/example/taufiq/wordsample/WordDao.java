@@ -24,6 +24,9 @@ public interface WordDao {
     @Query("DELETE FROM word_table")
     void deleteAll();
 
+    @Query("SELECT * FROM  word_table LIMIT 1")
+    Word[] getAnyWord();
+
 
 
 }
