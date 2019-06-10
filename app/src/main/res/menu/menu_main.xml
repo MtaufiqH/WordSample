@@ -2,9 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/clear_Data"
+    <item
+        android:id="@+id/clear_Data"
         android:orderInCategory="100"
         android:title="@string/clear_all_data"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
 </menu>
