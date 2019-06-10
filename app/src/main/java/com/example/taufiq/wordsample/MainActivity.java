@@ -3,12 +3,14 @@ package com.example.taufiq.wordsample;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,6 +57,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // create a functionality to swipe items in the
+        // recyclerView to delete that item
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                int position = viewHolder.getAdapterPosition();
+                Word myWord = adapter.getWordAtPosition(position);
+                Toast.makeText(MainActivity.this, "Deleting " + myWord.getWord(), Toast.LENGTH_SHORT).show();
+
+                mWordViewModel.deleteWord(myWord);
+
+            }
+        });
+
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+
 
     }
 
@@ -82,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.clear_Data){
             // add toast
-            Toast.makeText(this, "Clearing the data...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Clearing All data...", Toast.LENGTH_SHORT).show();
 
             // and then delete existing data
             mWordViewModel.deleteAll();
