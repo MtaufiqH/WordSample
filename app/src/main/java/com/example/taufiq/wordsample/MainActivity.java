@@ -48,13 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         floatingActionButton = findViewById(R.id.fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,NewWordAct.class);
-                startActivityForResult(intent,NEW_WORD_ACTIVITY_REQUEST_CODE);
-            }
+        floatingActionButton.setOnClickListener(View -> {
+            Intent intent = new Intent(MainActivity.this,NewWordAct.class);
+            startActivityForResult(intent,NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
+
+
 
 
         // create a functionality to swipe items in the
